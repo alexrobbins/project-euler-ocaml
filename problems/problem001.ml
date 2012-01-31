@@ -10,10 +10,9 @@ let amount = function
   | _ -> 0;;
 
 let rec sum current top accum = 
-  let over = current == top in
-    match over with
-      true -> accum
-      | false -> sum (current + 1) top (accum + (amount current));;
+    match current with
+      _ when current == top -> accum
+      | _ -> sum (current + 1) top (accum + (amount current));;
 
 let problem1 top =
   sum 1 top 0;;
