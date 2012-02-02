@@ -9,9 +9,10 @@ let rec sum current top accum =
       n when n mod 3 = 0 or n mod 5 = 0 -> n
     | _ -> 0
   in
-  match current = top with
-    true -> accum
-    | false -> sum (current + 1) top (accum + (amount current))
+  if current = top then
+    accum
+  else
+    sum (current + 1) top (accum + (amount current))
 
 let problem1 top =
   sum 1 top 0;;
